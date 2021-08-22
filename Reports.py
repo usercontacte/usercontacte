@@ -21,10 +21,8 @@ class Class_Reports:
 
     # @st.cache(allow_output_mutation=True)
     def con_init(self):
-    #     return mysql.connector.connect(host = "162.241.217.21", port = 3306, database = "artbyart_hemnet-scraper", user = "artbyart_hemnet"
-    # , password = "Testingdatabase")
-        return mysql.connector.connect(host = st.secrets.mysql.host, port = st.secrets.mysql.port, database = st.secrets.mysql.database, user = st.secrets.mysql.user, password = st.secrets.mysql.password)
-
+    #    return mysql.connector.connect(host = st.secrets.mysql.host, port = st.secrets.mysql.port, database = st.secrets.mysql.database, user = st.secrets.mysql.user, password = st.secrets.mysql.password)
+         return mysql.connector.connect(**st.secrets.mysql)
     # @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
     # @st.cache(hash_funcs={DBConnection: id})
     def query(self, query):
