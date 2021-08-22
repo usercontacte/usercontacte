@@ -94,7 +94,7 @@ class Class_Reports:
                 df = df.append({'Dates': d, str(statusText): result}, ignore_index=True)
 
         st.write(df)
-        st.line_chart(df)
+        st.area_chart(df)
         st.balloons()
 
     def count_forsale(self, d):
