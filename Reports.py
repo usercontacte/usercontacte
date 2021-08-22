@@ -20,9 +20,10 @@ class Class_Reports:
         self.main()
 
     # @st.cache(allow_output_mutation=True)
+    # @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
     def con_init(self):
     #    return mysql.connector.connect(host = st.secrets.mysql.host, port = st.secrets.mysql.port, database = st.secrets.mysql.database, user = st.secrets.mysql.user, password = st.secrets.mysql.password)
-         return mysql.connector.connect(**st.secrets.db_credentials)
+         return mysql.connector.connect(**st.secrets["db_credentials"])
     # @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
     # @st.cache(hash_funcs={DBConnection: id})
     def query(self, query):
