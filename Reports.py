@@ -76,7 +76,7 @@ class Class_Reports:
             df = pd.DataFrame(columns=['Dates', 'For Sale Properties', 'Sold Properties', 'Private Properties'])
         else:
             df = pd.DataFrame(columns=[statusText], index=pd.date_range(start='2021/08/22', end='2021/08/24',
-                       freq='M'))
+                       freq='d'))
     
         for i in range(len(coveredDates)):
             d = coveredDates[i].strftime('%Y-%m-%d')
