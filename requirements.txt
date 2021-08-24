@@ -4,3 +4,4 @@ pyarrow==5.0.0
 numpy==1.18.1
 pandas==0.25.3
 datetime
+/home/appuser/venv/bin/python -m pip install --upgrade pip
