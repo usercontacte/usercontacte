@@ -73,9 +73,9 @@ class Class_Reports:
         my_bar.empty()
 
         if (status == 0):
-            df = pd.DataFrame(columns=['Dates', 'For Sale Properties', 'Sold Properties', 'Private Properties'])
+            df = pd.DataFrame(columns=['For Sale Properties', 'Sold Properties', 'Private Properties'])
         else:
-            df = pd.DataFrame(columns=[statusText], index=pd.date_range(start='2021/08/22', end='2021/08/24', freq='D'))
+            df = pd.DataFrame(columns=[statusText])
     
         for i in range(len(coveredDates)):
             d = coveredDates[i].strftime('%Y-%m-%d')
@@ -86,7 +86,7 @@ class Class_Reports:
                     res = self.switch(x, d)
                     arr.append(res)
 
-                df = df.append({'Dates': d, 'For Sale Properties': arr[0], 'Sold Properties': arr[1], 'Private Properties': arr[2]}, ignore_index=True)
+                df = df.append({'For Sale Properties': arr[0], 'Sold Properties': arr[1], 'Private Properties': arr[2]}, ignore_index=True)
             else:
                 result = self.switch(status, d)
 #                 df = df.append([{'Dates': d, str(statusText): result}], ignore_index=True)
@@ -94,9 +94,9 @@ class Class_Reports:
                 df = df.append({statusText: result}, ignore_index=True)
 
         st.table(df)
-        # st.line_chart(df)
-        st.balloons()
+        # st.line_chart(df
         st.area_chart(df)
+        st.balloons()
         
 #         chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
 #         st.area_chart(chart_data)
