@@ -90,9 +90,10 @@ class Class_Reports:
             else:
                 result = self.switch(status, d)
 #                 df = df.append([{'Dates': d, str(statusText): result}], ignore_index=True)
-                df = df.append({'Dates': d, statusText: int(result)}, ignore_index=True)
+                a = "ok"
+                df = df.append({'Dates': d, statusText: a}, ignore_index=True)
 
-        st.write(df)
+        st.table(df)
         # st.line_chart(df)
         st.balloons()
         st.area_chart(df)
