@@ -86,17 +86,17 @@ class Class_Reports:
                     res = self.switch(x, d)
                     arr.append(res)
 
-                df = df.append({'Dates': d, 'For Sale Properties': arr[0], 'Sold Properties': arr[1], 'Private Properties': arr[2]}, ignore_index=True)
+                df = df.append({'Dates': str(d), 'For Sale Properties': arr[0], 'Sold Properties': arr[1], 'Private Properties': arr[2]}, ignore_index=True)
             else:
                 result = self.switch(status, d)
-                df = df.append({'Dates': d, str(statusText): result}, ignore_index=True)
+                df = df.append({'Dates': str(d), str(statusText): result}, ignore_index=True)
 
         st.write(df)
         # st.line_chart(df)
 #         st.area_chart(df)
         st.balloons()
-        chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
-        st.area_chart(chart_data)
+#         chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
+#         st.area_chart(chart_data)
 
     def count_forsale(self, d):
         result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM hemnet_bostad_salda WHERE date_created = '{d}';")
