@@ -75,7 +75,7 @@ class Class_Reports:
         if (status == 0):
             df = pd.DataFrame(columns=['Dates', 'For Sale Properties', 'Sold Properties', 'Private Properties'])
         else:
-            df = pd.DataFrame(columns=[statusText], index=pd.date_range(start='2018/01/01', end='2018/07/01',
+            df = pd.DataFrame(columns=[statusText], index=pd.date_range(start='2021/08/22', end='2021/08/24',
                        freq='M'))
     
         for i in range(len(coveredDates)):
