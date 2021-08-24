@@ -75,8 +75,7 @@ class Class_Reports:
         if (status == 0):
             df = pd.DataFrame(columns=['Dates', 'For Sale Properties', 'Sold Properties', 'Private Properties'])
         else:
-#             df = pd.DataFrame(columns=['Dates', str(statusText)])
-            df = pd.DataFrame(np.random.randn(20, 2), columns=['Dates', statusText])
+            df = pd.DataFrame(columns=['Dates', statusText])
     
         for i in range(len(coveredDates)):
             d = coveredDates[i].strftime('%Y-%m-%d')
@@ -91,7 +90,7 @@ class Class_Reports:
             else:
                 result = self.switch(status, d)
 #                 df = df.append([{'Dates': d, str(statusText): result}], ignore_index=True)
-#                 df = df.append({'Dates': d, 'statusText': int(0)}, ignore_index=True)
+                df = df.append({'Dates': d, statusText: int(result)}, ignore_index=True)
 
         st.write(df)
         # st.line_chart(df)
