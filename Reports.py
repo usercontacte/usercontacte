@@ -76,7 +76,7 @@ class Class_Reports:
             df = pd.DataFrame(columns=['Dates', 'For Sale Properties', 'Sold Properties', 'Private Properties'])
         else:
 #             df = pd.DataFrame(columns=['Dates', str(statusText)])
-            df = pd.DataFrame(np.random.randn(20, 2), columns=['Dates', 'statusText'])
+            df = pd.DataFrame(np.random.randn(20, 2), columns=['Dates', statusText])
     
         for i in range(len(coveredDates)):
             d = coveredDates[i].strftime('%Y-%m-%d')
