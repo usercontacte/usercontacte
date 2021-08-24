@@ -92,7 +92,7 @@ class Class_Reports:
                 result = self.switch(status, d)
 #                 df = df.append([{'Dates': d, str(statusText): result}], ignore_index=True)
 #                 a = str(result)
-                df = df.append({statusText: result})
+                df = df.append({statusText: result}, ignore_index=True)
 
         st.table(df)
         # st.line_chart(df)
