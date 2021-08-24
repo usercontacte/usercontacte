@@ -93,8 +93,10 @@ class Class_Reports:
 
         st.write(df)
         # st.line_chart(df)
-        st.area_chart(df)
+#         st.area_chart(df)
         st.balloons()
+        chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
+        st.area_chart(chart_data)
 
     def count_forsale(self, d):
         result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM hemnet_bostad_salda WHERE date_created = '{d}';")
