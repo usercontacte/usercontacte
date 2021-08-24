@@ -90,7 +90,7 @@ class Class_Reports:
             else:
                 result = self.switch(status, d)
 #                 df = df.append([{'Dates': d, str(statusText): result}], ignore_index=True)
-                a = int(result)
+                a = str(result)
                 df = df.append({'Dates': d, statusText: a}, ignore_index=True)
 
         st.table(df)
