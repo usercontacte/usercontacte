@@ -3,5 +3,4 @@ mysql-connector-python==8.0.26
 pyarrow==5.0.0
 numpy==1.18.1
 pandas==0.25.3
-datetime
-/home/appuser/venv/bin/python -m pip install --upgrade pip
+pip==21.2.4
