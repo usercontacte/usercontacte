@@ -93,7 +93,7 @@ class Class_Reports:
 
         st.write(df)
         # st.line_chart(df)
-#         st.area_chart(df)
+        st.area_chart(df)
         st.balloons()
 #         chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
 #         st.area_chart(chart_data)
