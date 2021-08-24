@@ -86,11 +86,11 @@ class Class_Reports:
                     res = self.switch(x, d)
                     arr.append(res)
 
-                df = df.append([{'Dates': d, 'For Sale Properties': arr[0], 'Sold Properties': arr[1], 'Private Properties': arr[2]}], ignore_index=True)
+                df = df.append({'Dates': d, 'For Sale Properties': arr[0], 'Sold Properties': arr[1], 'Private Properties': arr[2]}, ignore_index=True)
             else:
                 result = self.switch(status, d)
 #                 df = df.append([{'Dates': d, str(statusText): result}], ignore_index=True)
-                a = "ok"
+                a = int(result)
                 df = df.append({'Dates': d, statusText: a}, ignore_index=True)
 
         st.table(df)
