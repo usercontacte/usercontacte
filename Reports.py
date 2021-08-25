@@ -79,7 +79,7 @@ class Class_Reports:
             df = pd.DataFrame(columns=['For Sale Properties', 'Sold Properties', 'Private Properties'])
         else:
             df = pd.DataFrame(columns=[statusText])
-            df.index = self.dateindex
+            
             
         for i in range(len(coveredDates)):
             d = coveredDates[i].strftime('%Y-%m-%d')
@@ -96,7 +96,8 @@ class Class_Reports:
 #                 df = df.append([{'Dates': d, str(statusText): result}], ignore_index=True)
 #                 a = str(result)
                 df = df.append({statusText: result}, ignore_index=True)
-
+    
+        df.index = self.dateindex
         st.table(df)
         # st.line_chart(df
         st.area_chart(df)
