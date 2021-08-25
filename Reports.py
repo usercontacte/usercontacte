@@ -34,6 +34,9 @@ class Class_Reports:
         d3 = st.date_input("Please select date range: ", [])
         if (len(d3) > 1):
             dates = pd.date_range(start=d3[0], end=d3[1])
+#             additional functions
+            index = pd.date_range(start=d3[0], end=d3[1],freq='D')
+
             # st.write(dates)
             if not dates.empty:
                 status = st.radio("Select status: ", ('For Sale', 'Sold', 'Private', 'All'))
@@ -41,16 +44,16 @@ class Class_Reports:
 
                 if status == 'For Sale':
                     st.header('For Sale Properties')
-                    self.table(dates, 1, statusText = "For Sale Properties")
+                    self.table(dates, 1, statusText = "For Sale Properties", index)
                 elif status == 'Sold':
                     st.header('Sold Properties')
-                    self.table(dates, 2, statusText = "Sold Properties")
+                    self.table(dates, 2, statusText = "Sold Properties", index)
                 elif status == 'Private':
                     st.header('Private Properties')
-                    self.table(dates, 3, statusText = "Private Properties")
+                    self.table(dates, 3, statusText = "Private Properties", index)
                 else: 
                     st.header('All Properties')
-                    self.table(dates, 0, statusText = "All Properties")
+                    self.table(dates, 0, statusText = "All Properties", index)
 
     def switch(self, option, dates):
 
@@ -65,7 +68,7 @@ class Class_Reports:
         else:
             return 0
 
-    def table(self, coveredDates, status, statusText):
+    def table(self, coveredDates, status, statusText, date_index):
         my_bar = st.progress(0)
         for percent_complete in range(100):
             time.sleep(0.1)
@@ -76,7 +79,8 @@ class Class_Reports:
             df = pd.DataFrame(columns=['For Sale Properties', 'Sold Properties', 'Private Properties'])
         else:
             df = pd.DataFrame(columns=[statusText])
-    
+            df.index = date_index
+            
         for i in range(len(coveredDates)):
             d = coveredDates[i].strftime('%Y-%m-%d')
             
