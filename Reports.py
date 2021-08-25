@@ -28,7 +28,7 @@ class Class_Reports:
             cur.execute(query)
             return cur.fetchall()
         
-     def count_forsale(self, d):
+    def count_forsale(self, d):
         result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM hemnet_bostad_salda WHERE date_created = '{d}';")
         return result[0][0]
 
