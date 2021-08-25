@@ -35,7 +35,7 @@ class Class_Reports:
         if (len(d3) > 1):
             dates = pd.date_range(start=d3[0], end=d3[1])
 #             additional functions
-            index = pd.date_range(start=d3[0], end=d3[1],freq='D')
+            self.dateindex = pd.date_range(start=d3[0], end=d3[1],freq='D')
 
             # st.write(dates)
             if not dates.empty:
@@ -44,16 +44,16 @@ class Class_Reports:
 
                 if status == 'For Sale':
                     st.header('For Sale Properties')
-                    self.table(dates, 1, statusText = "For Sale Properties", index)
+                    self.table(dates, 1, statusText = "For Sale Properties")
                 elif status == 'Sold':
                     st.header('Sold Properties')
-                    self.table(dates, 2, statusText = "Sold Properties", index)
+                    self.table(dates, 2, statusText = "Sold Properties")
                 elif status == 'Private':
                     st.header('Private Properties')
-                    self.table(dates, 3, statusText = "Private Properties", index)
+                    self.table(dates, 3, statusText = "Private Properties")
                 else: 
                     st.header('All Properties')
-                    self.table(dates, 0, statusText = "All Properties", index)
+                    self.table(dates, 0, statusText = "All Properties")
 
     def switch(self, option, dates):
 
@@ -68,7 +68,7 @@ class Class_Reports:
         else:
             return 0
 
-    def table(self, coveredDates, status, statusText, date_index):
+    def table(self, coveredDates, status, statusText):
         my_bar = st.progress(0)
         for percent_complete in range(100):
             time.sleep(0.1)
@@ -79,7 +79,7 @@ class Class_Reports:
             df = pd.DataFrame(columns=['For Sale Properties', 'Sold Properties', 'Private Properties'])
         else:
             df = pd.DataFrame(columns=[statusText])
-            df.index = date_index
+            df.index = self.dateindex
             
         for i in range(len(coveredDates)):
             d = coveredDates[i].strftime('%Y-%m-%d')
