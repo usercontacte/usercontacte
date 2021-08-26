@@ -33,7 +33,7 @@ class Class_Reports:
         return result[0][0]
 
     def count_sold(self, d):
-        result = self.query(f"SELECT COUNT(IF(status = 'sold', 1, NULL)) 'Sold' FROM hemnet_bostad_salda WHERE sold_date = '{d}';")
+        result = self.query(f"SELECT COUNT(IF(status = 'sold', 1, NULL)) 'Sold' FROM hemnet_bostad_salda WHERE date_updated = '{d}';")
         return result[0][0]
 
     def count_private(self, d):
