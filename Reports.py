@@ -41,15 +41,15 @@ class Class_Reports:
         return result[0][0]
     
     def forsale(self):
-        result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM hemnet_bostad_salda;")
+        result = self.query(f"{st.secrets["countforsale"]}")
         return result[0][0]
 
     def sold(self):
-        result = self.query(f"SELECT COUNT(IF(status = 'sold', 1, NULL)) 'Sold' FROM hemnet_bostad_salda;")
+        result = self.query(f"{st.secrets["countsold"]}")
         return result[0][0]
 
     def private(self):
-        result = self.query(f"SELECT COUNT(IF(status = 'private', 1, NULL)) 'Private' FROM hemnet_bostad_salda;")
+        result = self.query(f"{st.secrets["countprivate"]}")
         return result[0][0]
     
     def display_results(self):
