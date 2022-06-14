@@ -10,7 +10,7 @@ import time
 class Class_Reports:
     # Initialize connection.
     # Uses st.cache to only run once.
-    st.title('Web Scrapping Reports')
+    st.title('Hemnet Scrapping Reports')
 
     # @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
     def __init__(self):
