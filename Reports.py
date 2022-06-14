@@ -29,27 +29,27 @@ class Class_Reports:
             return cur.fetchall()
         
     def count_forsale(self, d):
-        result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM {st.secrets['table']} WHERE date_created = {d};")
+        result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM {st.secrets['table']['tbl']} WHERE date_created = {d};")
         return result[0][0]
 
     def count_sold(self, d):
-        result = self.query(f"SELECT COUNT(IF(status = 'sold', 1, NULL)) 'Sold' FROM {st.secrets['table']} WHERE date_updated = {d};")
+        result = self.query(f"SELECT COUNT(IF(status = 'sold', 1, NULL)) 'Sold' FROM {st.secrets['table']['tbl']} WHERE date_updated = {d};")
         return result[0][0]
 
     def count_private(self, d):
-        result = self.query(f"SELECT COUNT(IF(status = 'private', 1, NULL)) 'Private' FROM {st.secrets['table']} WHERE date_updated = {d};")
+        result = self.query(f"SELECT COUNT(IF(status = 'private', 1, NULL)) 'Private' FROM {st.secrets['table']['tbl']} WHERE date_updated = {d};")
         return result[0][0]
     
     def forsale(self):
-        result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM {st.secrets['table']};")
+        result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM {st.secrets['table']['tbl']};")
         return result[0][0]
 
     def sold(self):
-        result = self.query(f"SELECT COUNT(IF(status = 'sold', 1, NULL)) 'Sold' FROM {st.secrets['table']};")
+        result = self.query(f"SELECT COUNT(IF(status = 'sold', 1, NULL)) 'Sold' FROM {st.secrets['table']['tbl']};")
         return result[0][0]
 
     def private(self):
-        result = self.query(f"SELECT COUNT(IF(status = 'private', 1, NULL)) 'Private' FROM {st.secrets['table']};")
+        result = self.query(f"SELECT COUNT(IF(status = 'private', 1, NULL)) 'Private' FROM {st.secrets['table']['tbl']};")
         return result[0][0]
     
     def display_results(self):
