@@ -68,7 +68,7 @@ class Class_Reports:
 
             # st.write(dates)
             if not dates.empty:
-                status = st.radio("Select status: ", ('For Sale', 'Sold', 'Private', 'All'))
+                status = st.radio("Select status: ", ('All', 'For Sale', 'Sold', 'Private'))
                 st.info(f"Showing results from {d3[0].strftime('%d, %B %Y')} to {d3[1].strftime('%d, %B %Y')}")
 
                 if status == 'For Sale':
