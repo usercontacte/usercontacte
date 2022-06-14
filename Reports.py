@@ -41,15 +41,15 @@ class Class_Reports:
         return result[0][0]
     
     def forsale(self):
-        result = self.query(f"{st.secrets["qry"]["countforsale"]}")
+        result = self.query(f"{**st.secrets["qry"]["countforsale"]}")
         return result[0][0]
 
     def sold(self):
-        result = self.query(f"{st.secrets["qry"]["countsold"]}")
+        result = self.query(f"{**st.secrets["qry"]["countsold"]}")
         return result[0][0]
 
     def private(self):
-        result = self.query(f"{st.secrets["qry"]["countprivate"]}")
+        result = self.query(f"{**st.secrets["qry"]["countprivate"]}")
         return result[0][0]
     
     def display_results(self):
