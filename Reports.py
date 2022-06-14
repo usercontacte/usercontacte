@@ -29,15 +29,15 @@ class Class_Reports:
             return cur.fetchall()
         
     def count_forsale(self, d):
-        result = self.query(f"SELECT COUNT(IF(status = 'for_sale', 1, NULL)) 'For Sale' FROM {st.secrets['table']['tbl']} WHERE date_created = '{d}';")
+        result = self.query(f"{st.secrets['query']['sqlsale_b']} '{d}';")
         return result[0][0]
 
     def count_sold(self, d):
-        result = self.query(f"SELECT COUNT(IF(status = 'sold', 1, NULL)) 'Sold' FROM {st.secrets['table']['tbl']} WHERE date_updated = '{d}';")
+        result = self.query(f"{st.secrets['query']['sqlsold_b']} '{d}';")
         return result[0][0]
 
     def count_private(self, d):
-        result = self.query(f"SELECT COUNT(IF(status = 'private', 1, NULL)) 'Private' FROM {st.secrets['table']['tbl']} WHERE date_updated = '{d}';")
+        result = self.query(f"{st.secrets['query']['sqlpriv_b']} '{d}';")
         return result[0][0]
     
     def forsale(self):
